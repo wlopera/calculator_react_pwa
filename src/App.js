@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { ThemeProvider } from "styled-components";
 
-function App() {
+import Calculator from "./components/calculator/Calculator";
+
+import GlobalStyle from "./util/GlobalStyle";
+
+const App = () => {
+  const [themeNum, setThemeNum] = useState(1);
+
+  const getTheme = (number) => ({
+    main: `var(--main-background-${number})`,
+    toggle: `var(--toggle-background-${number})`,
+    screen: `var(--screen-background-${number})`,
+    key: {
+      backgroundOne: `var(--key-background-one-${number})`,
+      backgroundTwo: `var(--key-background-two-${number})`,
+      backgroundThree: `var(--key-background-three-${number})`,
+    },
+    keyShadow: {
+      one: `var(--key-shadow-one-${number})`,
+      two: `var(--key-shadow-two-${number})`,
+      three: `var(--key-shadow-three-${number})`,
+    },
+    text: {
+      one: `var(--text-color-one-${number})`,
+      two: `var(--text-color-two-${number})`,
+      // three: `${number === 3 ? "var(--text-color-three-3}" : null}`,
+    },
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={() => getTheme(themeNum)}>
+      <GlobalStyle />
+      <Calculator onThemeNum={setThemeNum} />
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
