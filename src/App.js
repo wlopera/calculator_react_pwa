@@ -25,7 +25,8 @@ const App = () => {
     text: {
       one: `var(--text-color-one-${number})`,
       two: `var(--text-color-two-${number})`,
-      // three: `${number === 3 ? "var(--text-color-three-3}" : null}`,
+      three: `var(--text-color-three-${number})`,
+      four: `var(--text-color-four-${number})`,
     },
   });
 
