@@ -114,21 +114,25 @@ export const BtnsBox = styled.div`
 
 // Componente estilo CalcBtnBox: Estilo para botones.
 export const CalcBtnBox = styled(Row)`
-  grid-column: auto / span 1;
+  grid-column: ${(props) => props.gc};
   border-radius: 0.5rem;
   padding: 1rem;
 
   background-color: ${(props) => {
-    if (props.bc === "theme.key.backgroundThree") {
-      return props.theme.key.backgroundThree;
-    } else if (props.bc === "theme.key.backgroundOne") {
+    if (props.bc === "theme.key.backgroundOne") {
       return props.theme.key.backgroundOne;
+    } else if (props.bc === "theme.key.backgroundTwo") {
+      return props.theme.key.backgroundTwo;
+    } else if (props.bc === "theme.key.backgroundThree") {
+      return props.theme.key.backgroundThree;
     }
   }};
 
   color: ${(props) => {
     if (props.color === "theme.text.two") {
       return props.theme.text.two;
+    } else if (props.color === "theme.text.three") {
+      return props.theme.text.three;
     } else if (props.color === "theme.text.four") {
       return props.theme.text.four;
     }
@@ -136,10 +140,12 @@ export const CalcBtnBox = styled(Row)`
 
   border-bottom: 0.25rem solid
     ${(props) => {
-      if (props.bbc === "theme.keyShadow.three") {
-        return props.theme.keyShadow.three;
-      } else if (props.bbc === "theme.keyShadow.one") {
+      if (props.bbc === "theme.keyShadow.one") {
         return props.theme.keyShadow.one;
+      } else if (props.bbc === "theme.keyShadow.two") {
+        return props.theme.keyShadow.two;
+      } else if (props.bbc === "theme.keyShadow.three") {
+        return props.theme.keyShadow.three;
       }
     }};
 

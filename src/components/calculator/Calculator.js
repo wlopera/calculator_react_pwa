@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import Button from "../layout/Button";
 
 import CardTop from "../layout/CardTop";
@@ -17,6 +16,7 @@ const Calculator = ({ onThemeNum }) => {
           <BtnsBox>
             <Button
               value="7"
+              gc="auto/span 1"
               bc="theme.key.backgroundThree"
               color="theme.text.two"
               bbc="theme.keyShadow.three"
@@ -24,6 +24,7 @@ const Calculator = ({ onThemeNum }) => {
             />
             <Button
               value="8"
+              gc="auto/span 1"
               bc="theme.key.backgroundThree"
               color="theme.text.two"
               bbc="theme.keyShadow.three"
@@ -31,6 +32,7 @@ const Calculator = ({ onThemeNum }) => {
             />
             <Button
               value="9"
+              gc="auto/span 1"
               bc="theme.key.backgroundThree"
               color="theme.text.two"
               bbc="theme.keyShadow.three"
@@ -38,6 +40,7 @@ const Calculator = ({ onThemeNum }) => {
             />
             <Button
               value="DEL"
+              gc="auto/span 1"
               bc="theme.key.backgroundOne"
               color="theme.text.four"
               bbc="theme.keyShadow.one"
@@ -45,6 +48,7 @@ const Calculator = ({ onThemeNum }) => {
             />
             <Button
               value="4"
+              gc="auto/span 1"
               bc="theme.key.backgroundThree"
               color="theme.text.two"
               bbc="theme.keyShadow.three"
@@ -52,6 +56,7 @@ const Calculator = ({ onThemeNum }) => {
             />
             <Button
               value="5"
+              gc="auto/span 1"
               bc="theme.key.backgroundThree"
               color="theme.text.two"
               bbc="theme.keyShadow.three"
@@ -59,6 +64,7 @@ const Calculator = ({ onThemeNum }) => {
             />
             <Button
               value="6"
+              gc="auto/span 1"
               bc="theme.key.backgroundThree"
               color="theme.text.two"
               bbc="theme.keyShadow.three"
@@ -66,6 +72,7 @@ const Calculator = ({ onThemeNum }) => {
             />
             <Button
               value="+"
+              gc="auto/span 1"
               bc="theme.key.backgroundThree"
               color="theme.text.two"
               bbc="theme.keyShadow.three"
@@ -73,6 +80,7 @@ const Calculator = ({ onThemeNum }) => {
             />
             <Button
               value="1"
+              gc="auto/span 1"
               bc="theme.key.backgroundThree"
               color="theme.text.two"
               bbc="theme.keyShadow.three"
@@ -80,6 +88,7 @@ const Calculator = ({ onThemeNum }) => {
             />
             <Button
               value="2"
+              gc="auto/span 1"
               bc="theme.key.backgroundThree"
               color="theme.text.two"
               bbc="theme.keyShadow.three"
@@ -87,6 +96,7 @@ const Calculator = ({ onThemeNum }) => {
             />
             <Button
               value="3"
+              gc="auto/span 1"
               bc="theme.key.backgroundThree"
               color="theme.text.two"
               bbc="theme.keyShadow.three"
@@ -94,6 +104,7 @@ const Calculator = ({ onThemeNum }) => {
             />
             <Button
               value="-"
+              gc="auto/span 1"
               bc="theme.key.backgroundThree"
               color="theme.text.two"
               bbc="theme.keyShadow.three"
@@ -101,6 +112,7 @@ const Calculator = ({ onThemeNum }) => {
             />
             <Button
               value="."
+              gc="auto/span 1"
               bc="theme.key.backgroundThree"
               color="theme.text.two"
               bbc="theme.keyShadow.three"
@@ -108,6 +120,7 @@ const Calculator = ({ onThemeNum }) => {
             />
             <Button
               value="0"
+              gc="auto/span 1"
               bc="theme.key.backgroundThree"
               color="theme.text.two"
               bbc="theme.keyShadow.three"
@@ -115,6 +128,7 @@ const Calculator = ({ onThemeNum }) => {
             />
             <Button
               value="/"
+              gc="auto/span 1"
               bc="theme.key.backgroundThree"
               color="theme.text.two"
               bbc="theme.keyShadow.three"
@@ -122,10 +136,27 @@ const Calculator = ({ onThemeNum }) => {
             />
             <Button
               value="x"
+              gc="auto/span 1"
               bc="theme.key.backgroundThree"
               color="theme.text.two"
               bbc="theme.keyShadow.three"
               onClick={() => console.log("x")}
+            />
+            <Button
+              value="RESET"
+              gc="auto/span 2"
+              bc="theme.key.backgroundOne"
+              color="theme.text.four"
+              bbc="theme.keyShadow.one"
+              onClick={() => console.log("Reset")}
+            />
+            <Button
+              value="="
+              gc="auto/span 2"
+              bc="theme.key.backgroundTwo"
+              color="theme.text.three"
+              bbc="theme.keyShadow.two"
+              onClick={() => console.log("=")}
             />
           </BtnsBox>
         </Column>
