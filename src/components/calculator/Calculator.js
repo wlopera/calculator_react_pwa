@@ -12,17 +12,16 @@ import {
 import { Container, Column, BtnsBox, TextInfo } from "../../util/Styles";
 
 const Calculator = ({ onThemeNum }) => {
-  const [num1, setNum1] = useState(0);
+  const [num1, setNum1] = useState("0");
   const [operation, setOperation] = useState(null);
   const [num2, setNum2] = useState(null);
-  const [result, setResult] = useState(0);
+  const [result, setResult] = useState("0");
   const [textInfo, setTextInfo] = useState();
 
   const [step, setStep] = useState(1);
 
   const handleClickBotton = (num) => {
-    console.log("valores:", num, num1, num2, operation);
-    console.log(2222, textInfo);
+    //console.log("valores:", num, num1, num2, operation);
     switch (num) {
       case "0":
       case "1":
@@ -39,6 +38,7 @@ const Calculator = ({ onThemeNum }) => {
           if (operation === "=") {
             generateNumber(null, num, setNum1, setResult);
             setTextInfo();
+            setOperation(null);
           } else {
             generateNumber(num1, num, setNum1, setResult);
           }
@@ -71,25 +71,28 @@ const Calculator = ({ onThemeNum }) => {
         break;
       case "RESET":
         setStep(1);
-        setNum1(0);
+        setNum1("0");
         setOperation(null);
         setNum2(null);
-        setResult(0);
+        setResult("0");
         setTextInfo(null);
         break;
       case "=":
-        performCalulation(
-          num1,
-          num2,
-          operation,
-          num,
-          setNum1,
-          setNum2,
-          setResult
-        );
-        setStep(1);
-        setOperation(num);
-        setTextInfo((currentInfo) => `${currentInfo} ${num2} ${num}`);
+        console.log(123, num1, num2, operation, num);
+        if (num2) {
+          performCalulation(
+            num1,
+            num2,
+            operation,
+            num,
+            setNum1,
+            setNum2,
+            setResult
+          );
+          setStep(1);
+          setOperation(num);
+          setTextInfo((currentInfo) => `${currentInfo} ${num2} ${num}`);
+        }
         break;
       case "DEL":
         if (step === 1) {
