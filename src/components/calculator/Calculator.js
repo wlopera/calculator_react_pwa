@@ -13,7 +13,7 @@ import { Container, Column, BtnsBox, TextInfo } from "../../util/Styles";
 
 const Calculator = ({ onThemeNum }) => {
   const [num1, setNum1] = useState(0);
-  const [process, setProcess] = useState(null);
+  const [operation, setOperation] = useState(null);
   const [num2, setNum2] = useState(null);
   const [result, setResult] = useState(0);
   const [textInfo, setTextInfo] = useState();
@@ -21,12 +21,8 @@ const Calculator = ({ onThemeNum }) => {
   const [step, setStep] = useState(1);
 
   const handleClickBotton = (num) => {
-    console.log("valores:", num, num1, num2, process);
-    // console.log("num1:", num1);
-    // console.log("num2:", num2);
-    // console.log("process:", process);
-    // console.log("step:", step);
-
+    console.log("valores:", num, num1, num2, operation);
+    console.log(2222, textInfo);
     switch (num) {
       case "0":
       case "1":
@@ -38,8 +34,14 @@ const Calculator = ({ onThemeNum }) => {
       case "7":
       case "8":
       case "9":
+      case ".":
         if (step === 1) {
-          generateNumber(num1, num, setNum1, setResult);
+          if (operation === "=") {
+            generateNumber(null, num, setNum1, setResult);
+            setTextInfo();
+          } else {
+            generateNumber(num1, num, setNum1, setResult);
+          }
         } else {
           generateNumber(num2, num, setNum2, setResult);
         }
@@ -54,24 +56,23 @@ const Calculator = ({ onThemeNum }) => {
           performCalulation(
             num1,
             num2,
+            operation,
             num,
-            setProcess,
             setNum1,
             setNum2,
             setResult,
             setTextInfo
           );
-          setStep(2);
         } else {
-          setProcess(num);
+          setOperation(num);
           setTextInfo(`${num1} ${num}`);
         }
-        setProcess(num);
+        setOperation(num);
         break;
       case "RESET":
         setStep(1);
         setNum1(0);
-        setProcess(null);
+        setOperation(null);
         setNum2(null);
         setResult(0);
         setTextInfo(null);
@@ -80,14 +81,14 @@ const Calculator = ({ onThemeNum }) => {
         performCalulation(
           num1,
           num2,
-          process,
-          setProcess,
+          operation,
+          num,
           setNum1,
           setNum2,
-          setResult,
-          setStep
+          setResult
         );
         setStep(1);
+        setOperation(num);
         setTextInfo((currentInfo) => `${currentInfo} ${num2} ${num}`);
         break;
       case "DEL":
@@ -96,37 +97,6 @@ const Calculator = ({ onThemeNum }) => {
         } else {
           deleteNumber(num2, setNum2, setResult);
         }
-        // if (process) {
-        //   if (num2) {
-        //     let total = num2.toString().slice(0, -1);
-        //     if (!total) {
-        //       total = 0;
-        //     }
-        //     console.log("total: ", total, total.length);
-        //     setNum2(total);
-        //     setResult(total);
-        //     setTextInfo(`${num1} ${process} ${total}`);
-        //   } else {
-        //     setNum2(0);
-        //     setResult(0);
-        //     setTextInfo((currrentResult) => `${currrentResult} 0`);
-        //   }
-        // } else {
-        //   if (num1) {
-        //     let total = num1.toString().slice(0, -1);
-        //     if (!total) {
-        //       total = 0;
-        //     }
-        //     console.log("total: ", total, total.length);
-        //     setNum1(total);
-        //     setResult(total);
-        //     setTextInfo(total);
-        //   } else {
-        //     setNum1(0);
-        //     setResult(0);
-        //     setTextInfo(0);
-        //   }
-        // }
         break;
       default:
         break;

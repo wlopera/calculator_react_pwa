@@ -8,24 +8,23 @@ export const generateNumber = (currentNum, newNum, onNumber, onResult) => {
 export const performCalulation = (
   num1,
   num2,
-  process,
-  onProcess,
+  operation,
+  newOperation,
   onNumber1,
   onNumber2,
   onResult,
-  onTextInfo,
-  onStep
+  onTextInfo = null
 ) => {
   let total = 0;
   console.log(
     123,
     num1,
     num2,
-    parseFloat(num1),
-    parseFloat(num2),
+    operation,
+    newOperation,
     parseFloat(num1) / parseFloat(num2)
   );
-  switch (process) {
+  switch (operation) {
     case "+":
       total = parseFloat(num1) + parseFloat(num2);
       break;
@@ -44,10 +43,11 @@ export const performCalulation = (
   }
 
   onNumber1(total);
-  //onProcess(null);
   onNumber2(null);
   onResult(total);
-  onTextInfo(`${total} ${process}`);
+  if (onTextInfo) {
+    onTextInfo(`${total} ${newOperation}`);
+  }
 };
 
 export const deleteNumber = (number, onNumber, onResult) => {
