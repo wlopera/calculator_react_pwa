@@ -50,6 +50,15 @@ export const Text = styled.p`
   margin: ${(props) => props.m};
 `;
 
+// Componente estilo TextInfo: Estilo dinamico para texto de informacion al usuario
+export const TextInfo = styled(Text)`
+  align-self: flex-end;
+  color: lightslategrey;
+  height: 0px;
+  bottom: 0;
+  top: 0;
+`;
+
 // Componente estilo Toggle: Estilo para alternar radio button.
 export const Toggle = styled(Row)`
   position: relative;
